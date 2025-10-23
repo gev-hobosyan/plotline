@@ -1,4 +1,9 @@
+import { title } from "process";
 import ErrorSection from "./components/ErrorSection";
+
+export const metadata = {
+	title: "Plotline - 404"
+}
 
 const NotFound = () => {
 	return (
