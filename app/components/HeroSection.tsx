@@ -1,10 +1,15 @@
 import { ArrowRightIcon } from "lucide-react";
 import image from "../assets/image.png";
 import Image from "next/image";
+import { PT_Sans } from "next/font/google"
 
 interface Props {
 	error?: string;
 }
+
+const ptSans = PT_Sans({
+	weight: "700",
+})
 
 const HeroSection = ({ error }: Props) => {
 	return (
@@ -17,8 +22,8 @@ const HeroSection = ({ error }: Props) => {
 				{
 					error
 						? <h1 className="">{error}</h1>
-						: <h1 className="max-md:text-2xl md:text-3xl text-center">
-							The place where <br className="md:hidden" /> <span className="text-m-primary font-bold">All Stories</span> live.
+						: <h1 className="max-md:text-2xl md:text-6xl text-center">
+							The place where <br className="md:hidden" /> <span className={`${ptSans.className} text-m-primary font-bold`}>All Stories</span> live.
 						</h1>
 				}
 

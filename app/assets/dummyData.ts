@@ -20,13 +20,14 @@ export interface Movie {
 	trailerUrl: string;
 	runtime: number;
 	type: ShowTypes;
+	rating: number | null;
 }
 
 export const dummyMoviesData: Movie[] = [
 	{
 		id: 1,
 		title: "Wednesday",
-		description: "Follows Wednesday Addams&apos; years as a student, when she attempts to master her emerging psychic ability, thwart a killing spree, and solve the mystery that embroiled her parents.",
+		description: "Follows Wednesday Addams' years as a student, when she attempts to master her emerging psychic ability, thwart a killing spree, and solve the mystery that embroiled her parents.",
 		imageUrl: "https://m.media-amazon.com/images/M/MV5BMDE1NjNmZjgtZTg0OC00NjkxLWEzYzItMDNkMTc3YjgxZWQyXkEyXkFqcGc@._V1_.jpg",
 		releaseDate: "2022-11-27",
 		imdbId: "tt13443470",
@@ -57,7 +58,8 @@ export const dummyMoviesData: Movie[] = [
 		],
 		trailerUrl: "https://www.imdb.com/video/vi3929524249/",
 		runtime: 2700,
-		type: ShowTypes.TVSeries
+		type: ShowTypes.TVSeries,
+		rating: 8
 	},
 	{
 		id: 2,
@@ -101,7 +103,8 @@ export const dummyMoviesData: Movie[] = [
 		],
 		trailerUrl: "https://m.media-amazon.com/images/M/MV5BODA4ODc5ZGMtZGJmNy00N2ZhLWI4MTAtNzA4OTE1MzFhNGMyXkEyXkFqcGdeQWRpZWdtb25n._V1_.jpg",
 		runtime: 5700,
-		type: ShowTypes.Movie
+		type: ShowTypes.Movie,
+		rating: 7.6
 	},
 	{
 		id: 3,
@@ -127,7 +130,8 @@ export const dummyMoviesData: Movie[] = [
 		],
 		trailerUrl: "https://www.imdb.com/video/vi0051225/",
 		runtime: 6720,
-		type: ShowTypes.Movie
+		type: ShowTypes.Movie,
+		rating: null
 	},
 	{
 		id: 4,
@@ -157,6 +161,7 @@ export const dummyMoviesData: Movie[] = [
 		],
 		trailerUrl: "https://www.imdb.com/video/vi1913571353/",
 		runtime: 1920,
-		type: ShowTypes.TVSeries
+		type: ShowTypes.TVSeries,
+		rating: 7.7
 	},
 ]
