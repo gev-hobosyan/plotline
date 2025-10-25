@@ -13,8 +13,8 @@ const MovieCard = ({ movie }: Props) => {
 
 				<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80"></div>
 
-				<button className="absolute top-2 right-2 w-6 h-4 bg-gray-800/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-gray-700/80 transition-colors z-10">
-					<PlusIcon className="w-3 h-3 text-white" />
+				<button className="absolute top-2 right-2 w-6 h-4 bg-gray-800/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-gray-700/80 transition-colors z-10 cursor-pointer">
+					<PlusIcon className="w-3 h-3 text-white cursor-pointer" />
 				</button>
 
 				<div className="absolute inset-0 flex flex-col justify-end px-4 pb-3">

@@ -4,6 +4,14 @@ import NavLink from "./NavLink";
 import { useState } from "react";
 import Link from "next/link";
 
+import {
+	SignInButton,
+	SignUpButton,
+	SignedIn,
+	SignedOut,
+	UserButton,
+} from "@clerk/nextjs"
+
 const NavBar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -24,9 +32,22 @@ const NavBar = () => {
 
 				<div className="flex gap-3 items-center justify-center">
 					<MenuIcon className="md:hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)} />
-					<button className="border border-m-dark bg-m-primary/30 px-4 py-2 rounded-full cursor-pointer text-lg">
-						Log in
-					</button>
+					<div className="max-md:hidden flex items-center cursor-pointer">
+						<SignedOut>
+							<SignInButton>
+								<span className="cursor-pointer">Log In</span>
+							</SignInButton>
+							<div className="h-1 w-3"></div>
+							<SignUpButton>
+								<button className="border border-m-dark bg-m-primary/30 px-4 py-2 rounded-full cursor-pointer text-lg">
+									Get Started
+								</button>
+							</SignUpButton>
+						</SignedOut>
+						<SignedIn>
+							<UserButton />
+						</SignedIn>
+					</div>
 				</div>
 			</div>
 		</>
