@@ -11,6 +11,7 @@ import {
 	SignedOut,
 	UserButton,
 } from "@clerk/nextjs"
+import ContentTypeSwitcher from "./ContentTypeSwitcher";
 
 const NavBar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -47,6 +48,8 @@ const NavBar = () => {
 						<SignedIn>
 							<UserButton />
 						</SignedIn>
+
+						<ContentTypeSwitcher initialType={"movies"} />
 					</div>
 				</div>
 			</div>

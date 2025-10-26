@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from "lucide-react";
-import image from "../assets/image.png";
+import image from "../assets/movies.png";
 import Image from "next/image";
 
 interface Props {

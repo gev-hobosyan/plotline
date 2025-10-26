@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from "lucide-react";
-import image from "../assets/movies.png";
+import image from "../../assets/movies.png"
 import Image from "next/image";
 import { PT_Sans } from "next/font/google"
 import { SignUpButton } from "@clerk/nextjs";
