@@ -12,6 +12,7 @@
   --color-m-primary: #c1121f;
   --color-m-dark: #780000;
   --color-b-primary: #669bbc;
+  /* --color-b-primary: #000080; */
   --color-b-dark: #003049;
 }
 
@@ -131,6 +132,7 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

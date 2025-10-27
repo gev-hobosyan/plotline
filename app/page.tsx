@@ -1,13 +1,19 @@
-'use client'
+import Books from "./(books)/Books";
+import Movies from "./(movies)/Movies";
+import getContentType from "./lib/getContentType";
 
-import FeaturedSection from "./components/FeaturedSection";
-import HeroSection from "./components/HeroSection";
-
-export default function Home() {
+export default async function Home() {
+  const contentType = await getContentType()
+  
   return (
     <>
       {/* <HeroSection /> */}
-      <FeaturedSection />
+      {/* <FeaturedSection /> */}
+      {
+        contentType === "movies"
+        ? <Movies />
+        : <Books />
+      }
     </>
   );
 }

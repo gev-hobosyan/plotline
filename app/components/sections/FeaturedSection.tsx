@@ -1,8 +1,8 @@
 import { ArrowRightIcon } from "lucide-react";
-import BlurCircle from "./BlurCircle";
-import BlurLine from "./BlurLine";
-import MovieCard from "./MovieCard";
-import { dummyMoviesData } from "../assets/dummyData";
+import BlurCircle from "@/app/components/blur/BlurCircle";
+import BlurLine from "@/app/components/blur/BlurLine";
+import MovieCard from "@/app/components/MovieCard";
+import { dummyMoviesData } from "@/app/assets/dummyData";
 
 const FeaturedSection = () => {
 	return (

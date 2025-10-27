@@ -1,5 +1,5 @@
 import { PlusIcon, Star } from "lucide-react";
-import { Movie } from "../assets/dummyData";
+import { Movie } from "@/app/assets/dummyData";
 
 interface Props {
 	movie: Movie

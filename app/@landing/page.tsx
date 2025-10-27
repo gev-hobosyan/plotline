@@ -1,4 +1,4 @@
-import FeaturedSection from "../components/FeaturedSection";
+import FeaturedSection from "@/app/components/sections/FeaturedSection";
 import HeroSection from "./components/LandingHeroSection";
 
 const LandingPage = () => {

@@ -1,7 +1,8 @@
-"use client"
+'use client'
+
 import { MenuIcon, XIcon } from "lucide-react";
 import NavLink from "./NavLink";
-import { useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 
 import {
@@ -12,17 +13,33 @@ import {
 	UserButton,
 } from "@clerk/nextjs"
 import ContentTypeSwitcher from "./ContentTypeSwitcher";
+import Cookies from "js-cookie";
+import { setContentTypeAction } from "../actions/contentTypeActions";
+
+type ContentType = "movies" | "books"
 
 const NavBar = () => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [contentType, setContentType] = useState<ContentType>();
+	const [isPending, startTransition] = useTransition();
 
+	useEffect(() => {
+		setContentType(Cookies.get("contentType") as ContentType)
+	}, [])
+
+	const handleSwitch = (type: ContentType) => {
+		setContentType(type);
+		startTransition(async () => {
+			await setContentTypeAction(type);
+		});
+	};
 
 	return (
 		<>
 			<div className="w-full px-10 max-md:px-5 py-5 fixed top-0 left-0 flex items-center justify-between z-50">
 				<Link href="/" className="text-2xl font-work text-white cursor-pointer">Plot<span className="text-white">Line</span></Link>
 
-				<div className={`max-md:absolute max-md:top-0 max-md:left-0 ${isOpen ? 'max-md:w-full' : 'max-md:w-0'} flex items-center justify-center flex-row max-md:flex-col max-md:h-screen bg-black/10 backdrop-blur z-50 overflow-hidden transition-[width] duration-300 gap-8 md:bg-m-primary/20 md:px-6 md:py-3 md:rounded-full md:border md:border-m-dark`}>
+				<div className={`max-md:absolute max-md:top-0 max-md:left-0 ${isOpen ? 'max-md:w-full' : 'max-md:w-0'} flex items-center justify-center flex-row max-md:flex-col max-md:h-screen bg-black/10 backdrop-blur z-50 overflow-hidden transition-[width] duration-300 gap-8 ${contentType === "movies" ? 'md:bg-m-primary/20' : "md:bg-b-dark/20"} md:px-6 md:py-3 md:rounded-full md:border ${contentType === "movies" ? "md:border-m-dark" : "md:border-b-dark"} transition-all`}>
 					<XIcon className="md:hidden fixed top-6 right-6 cursor-pointer" onClick={() => setIsOpen(!isOpen)} />
 
 					<NavLink setIsOpen={setIsOpen} href="/">Home</NavLink>
@@ -49,7 +66,7 @@ const NavBar = () => {
 							<UserButton />
 						</SignedIn>
 
-						<ContentTypeSwitcher initialType={"movies"} />
+						<ContentTypeSwitcher contentType={contentType} handleSwitch={handleSwitch} />
 					</div>
 				</div>
 			</div>
