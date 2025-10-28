@@ -19,7 +19,7 @@ const RecommendationsSection = ({ image, contentType }: Props) => {
 					It's time to discover <br /> <span className={`text-4xl ${color === "m" ? "text-m-primary" : "text-b-primary"} font-medium`}>A Whole New World</span>
 				</h1>
 
-				<button className={`flex items-center gap-2 group text-lg ${color === "m" ? "bg-m-primary/30" : "bg-b-dark/30"} my-7 py-3 px-6 border ${color === "m" ? "border-m-dark" : "border-b-dark rounded-full cursor-pointer"}`}>
+				<button className={`flex items-center gap-2 group text-lg ${color === "m" ? "bg-m-primary/30" : "bg-b-dark/30"} my-7 py-3 px-6 border ${color === "m" ? "border-m-dark" : "border-b-dark"} rounded-full cursor-pointer`}>
 					Let's start
 					<ArrowRightIcon className="w-4.5 h-4.5 group-hover:translate-x-1 transition duration-300" />
 				</button>
