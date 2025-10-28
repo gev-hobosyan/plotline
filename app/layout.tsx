@@ -9,8 +9,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
   landing: React.ReactNode;
-  movies: React.ReactNode;
-  books: React.ReactNode;
 }>) {
   return (
     <ClerkProvider>
