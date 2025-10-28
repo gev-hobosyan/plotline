@@ -1,8 +1,3 @@
-'use client'
-
-import { Dispatch, SetStateAction, useEffect, useRef, useState, useTransition } from 'react';
-import { setContentTypeAction } from '../actions/contentTypeActions';
-import Cookies from 'js-cookie';
 import '@/app/components/css/contentTypeSwitch.css'
 
 type ContentType = 'movies' | 'books';

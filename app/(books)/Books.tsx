@@ -6,7 +6,14 @@ import book from "@/app/assets/book.jpg"
 const Books = () => {
 	return (
 		<>
+			<BlurCircle contentType="books" top="10px" left="30px" z="z-50" />
+			<BlurCircle contentType="books" bottom="10px" left="120px" z="z-50" />
+			<BlurCircle contentType="books" bottom="10px" right="30px" z="z-50" />
+			<BlurCircle contentType="books" top="30px" right="100px" z="z-50" />
+
 			<RecommendationsSection image={book} contentType="books" />
+
+			<FeaturedSection />
 		</>
 	);
 };
