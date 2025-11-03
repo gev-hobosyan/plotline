@@ -1,28 +1,24 @@
 import "./globals.css";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar/NavBar";
 import { ClerkProvider } from '@clerk/nextjs';
 import { SignedOut, SignedIn } from "@clerk/nextjs";
+import LandingPage from "./(landing)/LandingPage";
 
 export default async function RootLayout({
-  children,
-  landing
+  children
 }: Readonly<{
   children: React.ReactNode;
-  landing: React.ReactNode;
 }>) {
   return (
     <ClerkProvider>
       <html lang="en">
         <body>
-          {/* <NavBar />
-          {children} */}
-
           <SignedIn>
             <NavBar />
             {children}
           </SignedIn>
           <SignedOut>
-            {landing}
+            <LandingPage />
           </SignedOut>
         </body>
       </html>

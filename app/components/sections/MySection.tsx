@@ -1,34 +1,25 @@
-import { ArrowRightIcon } from "lucide-react";
-import BlurLine from "../blur/BlurLine";
-import MovieCard from "../MovieCard";
-import { dummyMoviesData } from "@/app/assets/dummyData";
+import Image, { StaticImageData } from "next/image";
+import Button from "../Button";
+import { PlusIcon } from "lucide-react";
 
 interface Props {
 	contentType: "movies" | "books"
+	image: StaticImageData
 }
 
-const MySection = ({ contentType }: Props) => {
+const MySection = ({ contentType, image }: Props) => {
 	return (
 		<>
-			<div className="py-4 px-10 max-md:px-5 overflow-hidden">
-				<div className="relative flex items-center justify-between pt-10 pb-7">
-					<BlurLine contentType={contentType} />
+			<div className="flex items-center justify-center h-screen flex-col">
+				<Image src={image} alt="hero_image" className="size-full absolute inset-0 -z-10 object-cover object-center blur-xs" />
+				<h1 className="max-md:text-2xl md:text-6xl text-center my-6">
+					Let's add new <br /> <span className={contentType === "movies" ? "text-m-primary" : "text-b-primary"}>{contentType.slice(0, contentType.length - 1)}</span> to your list
+				</h1>
 
-					<p className="text-gray-300 font-medium text-lg">Fantasy</p>
-					<button className="flex items-center gap-2 group justify-center text-sm text-gray-300">
-						View All
-						<ArrowRightIcon className="w-4 h-4 group-hover:translate-x-0.5 transition" />
-					</button>
-				</div>
-
-				<div className="flex flex-wrap justify-center gap-8">
-					<MovieCard movie={dummyMoviesData[0]} />
-					<MovieCard movie={dummyMoviesData[1]} />
-					<MovieCard movie={dummyMoviesData[0]} />
-					<MovieCard movie={dummyMoviesData[1]} />
-					<MovieCard movie={dummyMoviesData[0]} />
-					<MovieCard movie={dummyMoviesData[1]} />
-				</div>
+				<Button contentType={contentType}>
+					Add
+					<PlusIcon className="w-3 h-3" />
+				</Button>
 			</div>
 		</>
 	);

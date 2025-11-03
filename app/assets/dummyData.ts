@@ -3,7 +3,7 @@ type Genere = {
 	genre: string
 }
 
-enum ShowTypes {
+export enum ShowTypes {
 	Movie,
 	TVSeries
 }

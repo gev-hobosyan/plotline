@@ -1,7 +1,5 @@
-import HeroSection from "../@landing/components/LandingHeroSection";
 import BlurCircle from "../components/blur/BlurCircle";
-import FeaturedSection from "../components/sections/FeaturedSection";
-import MySection from "../components/sections/MySection";
+import HomeSection from "../components/sections/HomeSection";
 import RecommendationsSection from "../components/sections/RecommendationsSection";
 import movies from "@/app/assets/movies.png"
 
@@ -15,7 +13,7 @@ const Movies = () => {
 
 			<RecommendationsSection image={movies} contentType="movies" />
 
-			<MySection contentType="movies" />
+			<HomeSection contentType="movies" />
 		</>
 	);
 };

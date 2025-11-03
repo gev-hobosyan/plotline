@@ -1,6 +1,6 @@
 import BlurCircle from "../components/blur/BlurCircle";
 import FeaturedSection from "../components/sections/FeaturedSection";
-import MySection from "../components/sections/MySection";
+import HomeSection from "../components/sections/HomeSection";
 import RecommendationsSection from "../components/sections/RecommendationsSection";
 import book from "@/app/assets/book.jpg"
 
@@ -14,7 +14,7 @@ const Books = () => {
 
 			<RecommendationsSection image={book} contentType="books" />
 
-			<MySection contentType="books" />
+			<HomeSection contentType="books" />
 		</>
 	);
 };

@@ -12,9 +12,9 @@ import {
 	SignedOut,
 	UserButton,
 } from "@clerk/nextjs"
-import ContentTypeSwitcher from "./ContentTypeSwitcher";
+import ContentTypeSwitcher from "../ContentTypeSwitcher";
 import Cookies from "js-cookie";
-import { setContentTypeAction } from "../actions/contentTypeActions";
+import { setContentTypeAction } from "../../actions/contentTypeActions";
 
 type ContentType = "movies" | "books"
 

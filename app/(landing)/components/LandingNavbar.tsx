@@ -1,6 +1,5 @@
 import { SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs';
 import Link from 'next/link';
-import React from 'react';
 
 const Navbar = () => {
 	return (
