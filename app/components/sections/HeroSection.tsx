@@ -2,7 +2,6 @@ import { ArrowRightIcon } from "lucide-react";
 import image from "@/app/assets/movies.png";
 import Image from "next/image";
 import { PT_Sans } from "next/font/google"
-import { SignUpButton } from "@clerk/nextjs";
 import Button from "../Button";
 
 const ptSans = PT_Sans({
@@ -25,12 +24,12 @@ const HeroSection = () => {
 					<button className="flex gap-2 border border-m-dark items-center justify-center px-4 py-2 rounded-full backdrop-blur group cursor-pointer">
 						Learn More
 					</button>
-					<SignUpButton>
+					{/* <SignUpButton>
 						<Button contentType="movies">
 							Get Started
 							<ArrowRightIcon className="w-3 h-3 group-hover:translate-x-0.5 transition" />
 						</Button>
-					</SignUpButton>
+					</SignUpButton> */}
 				</div>
 			</div>
 		</>
