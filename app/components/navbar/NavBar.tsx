@@ -4,17 +4,11 @@ import { MenuIcon, XIcon } from "lucide-react";
 import NavLink from "./NavLink";
 import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
-
-import {
-	SignInButton,
-	SignUpButton,
-	SignedIn,
-	SignedOut,
-	UserButton,
-} from "@clerk/nextjs"
 import ContentTypeSwitcher from "../ContentTypeSwitcher";
 import Cookies from "js-cookie";
 import { setContentTypeAction } from "../../actions/contentTypeActions";
+import { LogoutLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 type ContentType = "movies" | "books"
 
@@ -22,6 +16,8 @@ const NavBar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [contentType, setContentType] = useState<ContentType>();
 	const [isPending, startTransition] = useTransition();
+
+	const { isAuthenticated, user } = useKindeBrowserClient()
 
 	useEffect(() => {
 		setContentType(Cookies.get("contentType") as ContentType)
@@ -51,7 +47,17 @@ const NavBar = () => {
 				<div className="flex gap-3 items-center justify-center">
 					<MenuIcon className="md:hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)} />
 					<div className="max-md:hidden flex items-center cursor-pointer">
-						<SignedOut>
+						{
+							isAuthenticated ?
+								<LogoutLink postLogoutRedirectURL="/">
+									Log out
+								</LogoutLink>
+								: <RegisterLink>
+									<p>Register</p>
+								</RegisterLink>
+						}
+
+						{/* <SignedOut>
 							<SignInButton>
 								<span className="cursor-pointer">Log In</span>
 							</SignInButton>
@@ -64,8 +70,7 @@ const NavBar = () => {
 						</SignedOut>
 						<SignedIn>
 							<UserButton />
-						</SignedIn>
-
+						</SignedIn> */}
 						<ContentTypeSwitcher contentType={contentType} handleSwitch={handleSwitch} />
 					</div>
 				</div>

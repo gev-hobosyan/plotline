@@ -16,7 +16,7 @@ const MySection = ({ contentType, image }: Props) => {
 					Let's add new <br /> <span className={contentType === "movies" ? "text-m-primary" : "text-b-primary"}>{contentType.slice(0, contentType.length - 1)}</span> to your list
 				</h1>
 
-				<Button contentType={contentType}>
+				<Button contentType={contentType} className={contentType === "movies" ? "bg-m-primary/30 border-m-dark" : "bg-b-dark/30 border-b-dark"}>
 					Add
 					<PlusIcon className="w-3 h-3" />
 				</Button>

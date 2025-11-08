@@ -1,8 +1,7 @@
 import "./globals.css";
 import NavBar from "./components/navbar/NavBar";
-import { ClerkProvider } from '@clerk/nextjs';
-import { SignedOut, SignedIn } from "@clerk/nextjs";
 import LandingPage from "./(landing)/LandingPage";
+import { AuthProvider } from "./AuthProvider";
 
 export default async function RootLayout({
   children
@@ -10,18 +9,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <AuthProvider>
       <html lang="en">
         <body>
-          <SignedIn>
-            <NavBar />
-            {children}
-          </SignedIn>
-          <SignedOut>
-            <LandingPage />
-          </SignedOut>
+
+          <NavBar />
+          {children}
+
+          {/* <LandingPage /> */}
+
         </body>
       </html>
-    </ClerkProvider>
+    </AuthProvider>
   );
 };

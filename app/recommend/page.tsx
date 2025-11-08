@@ -98,9 +98,11 @@ const Recommend = () => {
 			<BlurCircle contentType={contentType} bottom="-90px" right="900px" />
 			<BlurCircle contentType={contentType} top="200px" right="350px" />
 
-			<div className="flex items-center justify-center h-screen flex-col gap-8">
+			<div className="flex items-center justify-center h-screen flex-col gap-8 overflow-hidden">
 				<div className="w-full max-w-[500px]">
 					<ProgressBar contentType={contentType!} steps={steps} currentStep={currentStep} />
+
+					<div className="h-5"></div>
 
 					<Card contentType={contentType!} step={steps[currentStep]} handleNext={handleNext} setSelectedOption={setSelectedOption} selectedOption={selectedOption} isLastStep={currentStep === (steps.length - 1)} />
 				</div>

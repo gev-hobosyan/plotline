@@ -23,23 +23,30 @@ export async function GET(request: NextRequest) {
 
 	const data = (await response.json())
 
+	const movieData = data["short"]
+
 	const movie: Movie = {
 		id: 0,
-		title: "",
-		description: "",
-		imageUrl: "",
-		releaseDate: "",
-		imdbId: "",
-		generes: [],
-		keyWords: [],
-		trailerUrl: "",
-		runtime: 0,
+		title: movieData["name"],
+		description: movieData["description"],
+		imageUrl: movieData["image"],
+		releaseDate: movieData["datePublished"],
+		imdbId: imdb_id,
+		generes: movieData["genre"].map((genre: string) => {
+			return {
+				id: 0,
+				genre
+			}
+		}),
+		keyWords: movieData["keywords"].split(","),
+		trailerUrl: movieData["trailer"]["url"],
+		runtime: data["top"]["runtime"]["seconds"],
 		type: ShowTypes.Movie,
-		rating: null
+		rating: data["top"]["ratingsSummary"]["aggregateRating"]
 	}
 
-	return new Response(imdb_id, {
+	return new Response(JSON.stringify(movie), {
 		status: 200,
-		headers: { "Content-Type": "text/plain" }
+		headers: { "Content-Type": "application/json" }
 	})
 }

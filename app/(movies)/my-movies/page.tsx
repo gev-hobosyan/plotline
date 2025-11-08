@@ -15,11 +15,11 @@ const MyMovies = async () => {
 	return (
 		<>
 			<div className="py-4 px-10 max-md:px-5 overflow-hidden">
-				<MySection image={movies} contentType='movies' />
+				{/* <MySection image={movies} contentType='movies' /> */}
 
-				<SectionPart title='Favorites' href='/' contentType='movies' />
-				<SectionPart title='Fantasy' href='/' contentType='movies' />
-				<SectionPart title='Anime' href='/' contentType='movies' />
+				{/* <SectionPart title='Favorites' href='/' contentType='movies' /> */}
+				{/* <SectionPart title='Fantasy' href='/' contentType='movies' /> */}
+				{/* <SectionPart title='Anime' href='/' contentType='movies' /> */}
 			</div>
 		</>
 	);
