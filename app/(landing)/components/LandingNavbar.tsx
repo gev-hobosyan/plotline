@@ -1,4 +1,3 @@
-import { SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs';
 import Link from 'next/link';
 
 const Navbar = () => {
@@ -9,7 +8,7 @@ const Navbar = () => {
 
 				<div className="flex gap-3 items-center justify-center">
 					<div className="max-md:hidden flex items-center cursor-pointer">
-						<SignedOut>
+						{/* <SignedOut>
 							<SignInButton>
 								<span className="cursor-pointer">Log In</span>
 							</SignInButton>
@@ -19,7 +18,7 @@ const Navbar = () => {
 									Get Started
 								</button>
 							</SignUpButton>
-						</SignedOut>
+						</SignedOut> */}
 					</div>
 				</div>
 			</div>
