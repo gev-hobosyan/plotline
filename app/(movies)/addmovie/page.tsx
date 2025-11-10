@@ -2,12 +2,17 @@ import BlurCircle from "@/app/components/blur/BlurCircle";
 import Button from "@/app/components/Button";
 import { cookies } from "next/headers";
 import Card from "./components/SearchCard";
+import { redirect } from "next/navigation";
 
 type ContentType = "movies" | "books"
 
 const AddMovie = async () => {
 	const cookieStorage = await cookies()
-	const contentType: ContentType = cookieStorage.get("contentType")?.value as ContentType
+	const contentType = cookieStorage.get("contentType")?.value as ContentType
+
+	if (contentType === "books") {
+		redirect("/addbook")
+	}
 
 	return (
 		<>
