@@ -30,8 +30,8 @@ export async function GET(request: NextRequest) {
 		})
 	}
 
-	const movies: Movie = data.map((movie: any) => (
-		{
+	const movies: Movie = data.map((movie: any) => {
+		return {
 			title: movie["#TITLE"],
 			year: movie["#YEAR"],
 			imdb_id: movie["#IMDB_ID"],
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
 			aka: movie["#AKA"],
 			image: movie["#IMG_POSTER"],
 		}
-	))
+	})
 
 	return new Response(JSON.stringify(movies), {
 		status: 200,

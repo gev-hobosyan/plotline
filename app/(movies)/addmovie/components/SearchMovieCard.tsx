@@ -1,14 +1,16 @@
 import { PlusIcon, Star } from 'lucide-react';
 import { Movie } from '../../movie';
+import { redirect } from 'next/navigation';
 
 interface Props {
-	movie: Movie
+	movie: Movie,
+	onClick: (id: string) => void
 }
 
-const SearchMovieCard = ({ movie }: Props) => {
+const SearchMovieCard = ({ movie, onClick }: Props) => {
 	return (
 		<>
-			<div className="flex flex-col justify-between hover:-translate-y-1 transition duration-100 w-50 relative h-[300px] cursor-pointer overflow-hidden rounded-2xl group">
+			<div className="flex flex-col justify-between hover:-translate-y-1 transition duration-100 w-50 relative h-[300px] cursor-pointer overflow-hidden rounded-2xl group" onClick={() => onClick(movie.imdb_id)}>
 				<div className="absolute inset-0 bg-cover transition-transform duration-500 ease-out bg-center rounded-2xl" style={{ backgroundImage: `url(${movie.image})` }}></div>
 
 				<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80"></div>

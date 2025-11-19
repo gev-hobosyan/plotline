@@ -27,14 +27,14 @@ const Card = ({ contentType, step, handleNext, setSelectedOption, selectedOption
 				<div className="flex flex-col items-center gap-4">
 					{
 						step.options.map((option, index) => (
-							<Button onClick={() => setSelectedOption(option.value)} key={index} contentType={contentType as ("movies" | "books")} className={selectedOption === option.value ? `${bgColor}/30 ${borderColor}` : `bg-none ${borderColor} transition-colors duration-300`}>
+							<Button onClick={() => setSelectedOption(option.value)} key={index} className={selectedOption === option.value ? `${bgColor}/30 ${borderColor}` : `bg-none ${borderColor} transition-colors duration-300`}>
 								{option.label}
 							</Button>
 						))
 					}
 				</div>
 
-				<Button contentType={contentType} onClick={() => handleNext()} className={contentType === "movies" ? "bg-m-primary/30 border-m-dark" : "bg-b-dark/50 border-b-dark"} >
+				<Button onClick={() => handleNext()} className={contentType === "movies" ? "bg-m-primary/30 border-m-dark" : "bg-b-dark/50 border-b-dark"} >
 					{isLastStep ? "Complete" : "Continue"}
 				</Button>
 				{/* 				

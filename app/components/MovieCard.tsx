@@ -49,19 +49,6 @@ const MovieCard = ({ movie }: Props) => {
 						<h1 className="text-gray-200 text-center font-medium leading-tight">{movie.title}</h1>
 						<p className="text-sm text-gray-300 mb-4 line-clamp-3 text-center leading-tight">{movie.description}</p>
 					</div>
-
-
-					{/* <div className={`transition-all  overflow-hidden duration-300 ${
-						isHovered 
-						? "opacity-100 translate-y-0 max-h-40"
-						: "opacity-0 translate-y-4 max-h-0"
-					}`}>
-						<p className="text-sm text-gray-300 mb-4 line-clamp-3">{movie.description}</p>
-					</div> */}
-
-					{/* <div className="opacity-0 translate-y-4 max-h-0 transition-all overflow-hidden group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-40">
-						<p className="text-sm text-gray-300 mb-4 line-clamp-3">{movie.description}</p>
-					</div> */}
 				</div>
 			</div>
 		</>

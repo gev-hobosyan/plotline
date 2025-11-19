@@ -7,27 +7,62 @@ export const users = pgTable("users", {
 	email: varchar("email").unique().notNull(),
 })
 
-export const movies = pgTable("movies", {
+export const categories = pgTable("categories", {
 	id: serial("id").primaryKey(),
-	imdbId: varchar("imdb_id").notNull(),
-	title: varchar("title").notNull(),
-	userId: varchar("userId").notNull().references(() => users.id),
-	usersDescription: text("users_description").default(""),
-	collections: text("collections").array()
+	userId: varchar("user_id").notNull().references(() => users.id),
+	categoryName: varchar("category_name").notNull(),
+	movies: text("movies").array()
 })
 
 export const usersRelations = relations(users,
 	({ many }) => ({
-		movies: many(movies)
+		// movies: many(movies)
+		// movieList: many(movies)
+		categories: many(categories)
 	})
 )
 
-
-export const moviesRelations = relations(movies,
+export const categoriesRelations = relations(categories,
 	({ one }) => ({
 		user: one(users, {
-			fields: [movies.userId],
-			references: [users.id],
+			fields: [categories.userId],
+			references: [users.id]
 		})
 	})
 )
+
+// export const movieListsRelations = relations(movies,
+// 	({ one }) => ({
+// 		user: one(users, {
+// 			fields: [movies.userId],
+// 			references: [users.id]
+// 		})
+// 	})
+// )
+
+
+
+// export const moviesRelations = relations(movies,
+// 	({ one }) => ({
+// 		user: one(users, {
+// 			fields: [movies.userId],
+// 			references: [users.id],
+// 		})
+// 	})
+// )
+
+// export const movies = pgTable("movies", {
+// 	id: serial("id").primaryKey(),
+// 	imdbId: varchar("imdb_id").notNull(),
+// 	title: varchar("title").notNull(),
+// 	userId: varchar("user_id").notNull().references(() => users.id),
+// 	usersDescription: text("users_description").default(""),
+// 	collections: text("collections").array()
+// })
+
+// export const movies = pgTable("movies", {
+// 	id: serial("id").primaryKey(),
+// 	userId: varchar("user_id").notNull().references(() => users.id),
+// 	imdbId: varchar("imdb_id").notNull(),
+// 	categories: text("categories").array()
+// })
