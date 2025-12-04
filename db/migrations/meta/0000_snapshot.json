@@ -1,11 +1,11 @@
 {
-  "id": "a0b40159-eeec-4cc1-99f5-ffb4c331ba47",
+  "id": "507225b4-fd03-4cff-a574-f608c30b9b60",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.movies": {
-      "name": "movies",
+    "public.categories": {
+      "name": "categories",
       "schema": "",
       "columns": {
         "id": {
@@ -14,33 +14,20 @@
           "primaryKey": true,
           "notNull": true
         },
-        "imdb_id": {
-          "name": "imdb_id",
+        "user_id": {
+          "name": "user_id",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
-        "title": {
-          "name": "title",
+        "category_name": {
+          "name": "category_name",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
-        "userId": {
-          "name": "userId",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "users_description": {
-          "name": "users_description",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "default": "''"
-        },
-        "collections": {
-          "name": "collections",
+        "movies": {
+          "name": "movies",
           "type": "text[]",
           "primaryKey": false,
           "notNull": false
@@ -48,12 +35,12 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "movies_userId_users_id_fk": {
-          "name": "movies_userId_users_id_fk",
-          "tableFrom": "movies",
+        "categories_user_id_users_id_fk": {
+          "name": "categories_user_id_users_id_fk",
+          "tableFrom": "categories",
           "tableTo": "users",
           "columnsFrom": [
-            "userId"
+            "user_id"
           ],
           "columnsTo": [
             "id"

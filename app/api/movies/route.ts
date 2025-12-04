@@ -38,9 +38,9 @@ export async function GET(request: NextRequest) {
 				genre
 			}
 		}),
-		keyWords: movieData["keywords"].split(","),
-		trailerUrl: movieData["trailer"]["url"],
-		runtime: data["top"]["runtime"]["seconds"],
+		keyWords: movieData["keywords"] ? movieData["keywords"].split(",") : [""],
+		trailerUrl: movieData["trailer"] ? movieData["trailer"]["url"] : "",
+		runtime: data["top"]["runtime"] ? data["top"]["runtime"]["seconds"] : 0,
 		type: ShowTypes.Movie,
 		rating: data["top"]["ratingsSummary"]["aggregateRating"]
 	}

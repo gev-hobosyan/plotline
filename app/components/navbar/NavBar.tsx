@@ -39,7 +39,7 @@ const NavBar = () => {
 					<XIcon className="md:hidden fixed top-6 right-6 cursor-pointer" onClick={() => setIsOpen(!isOpen)} />
 
 					<NavLink setIsOpen={setIsOpen} href="/">Home</NavLink>
-					<NavLink setIsOpen={setIsOpen} href="/my-movies">My Movies</NavLink>
+					<NavLink setIsOpen={setIsOpen} href="/mymovies">My Movies</NavLink>
 					<NavLink setIsOpen={setIsOpen} href="/wishlist">WishList</NavLink>
 					<NavLink setIsOpen={setIsOpen} href="/coming">Upcoming</NavLink>
 				</div>

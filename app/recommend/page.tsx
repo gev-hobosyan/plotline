@@ -94,8 +94,8 @@ const Recommend = () => {
 	return (
 		<>
 			<BlurCircle contentType={contentType} top="50px" left="100px" />
-			<BlurCircle contentType={contentType} bottom="50px" right="-100px" />
-			<BlurCircle contentType={contentType} bottom="-90px" right="900px" />
+			<BlurCircle contentType={contentType} bottom="50px" right="100px" />
+			<BlurCircle contentType={contentType} bottom="90px" right="900px" />
 			<BlurCircle contentType={contentType} top="200px" right="350px" />
 
 			<div className="flex items-center justify-center h-screen flex-col gap-8 overflow-hidden">

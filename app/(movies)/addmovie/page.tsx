@@ -13,6 +13,9 @@ const AddMovie = async ({
 	const cookieStorage = await cookies()
 	const contentType = cookieStorage.get("contentType")?.value as ContentType
 
+	const to = searchParams && ((await searchParams).to as string)
+	const category = searchParams && ((await searchParams).category as string)
+
 	if (contentType === "books") {
 		redirect("/addbook")
 	}
@@ -25,7 +28,7 @@ const AddMovie = async ({
 			<BlurCircle contentType={contentType} top="250px" right="560px" />
 
 			<div className="h-screen flex items-center justify-center">
-				<Card contentType={contentType} />
+				<Card category={category} contentType={contentType} to={to} />
 			</div>
 		</>
 	);

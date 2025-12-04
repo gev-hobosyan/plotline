@@ -30,7 +30,7 @@ const MovieSection = ({ title, movies }: Props) => {
 					))}
 
 					{
-						movies.length < 8 &&
+						movies.length < 6 &&
 						<AddCard />
 					}
 				</div>

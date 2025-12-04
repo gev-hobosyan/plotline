@@ -30,7 +30,7 @@ const MovieCard = ({ movie }: Props) => {
 							</div>
 						</div>
 
-						<h1 className="place-self-center text-gray-200 font-medium leading-tight transition-all opacity-100  text-center mx-4">{movie.title}</h1>
+						<h1 className="place-self-center text-gray-200 font-medium leading-tight transition-all opacity-100  text-center mx-4">{movie.title.replace("&apos;", "'")}</h1>
 					</div>
 
 
@@ -46,8 +46,8 @@ const MovieCard = ({ movie }: Props) => {
 								<span className="text-sm">{movie.releaseDate}</span>
 							</div>
 						</div>
-						<h1 className="text-gray-200 text-center font-medium leading-tight">{movie.title}</h1>
-						<p className="text-sm text-gray-300 mb-4 line-clamp-3 text-center leading-tight">{movie.description}</p>
+						<h1 className="text-gray-200 text-center font-medium leading-tight">{movie.title.replace("&apos;", "'")}</h1>
+						<p className="text-sm text-gray-300 mb-4 line-clamp-3 text-center leading-tight">{movie.description.replace("&apos;", "'")}</p>
 					</div>
 				</div>
 			</div>

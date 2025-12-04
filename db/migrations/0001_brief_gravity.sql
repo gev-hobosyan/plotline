@@ -1,0 +1,1 @@
+ALTER TABLE "categories" ADD COLUMN "list_name" varchar DEFAULT 'mymovies' NOT NULL;

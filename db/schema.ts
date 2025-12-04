@@ -11,7 +11,8 @@ export const categories = pgTable("categories", {
 	id: serial("id").primaryKey(),
 	userId: varchar("user_id").notNull().references(() => users.id),
 	categoryName: varchar("category_name").notNull(),
-	movies: text("movies").array()
+	listName: varchar("list_name").notNull().default("mymovies"),
+	movies: text("movies").array(),
 })
 
 export const usersRelations = relations(users,

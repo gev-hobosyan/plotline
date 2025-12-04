@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
-import { getCategories } from '@/db/queries/getCategories';
+import { getMovies } from '@/db/queries/getMovies';
 import Button from '@/app/components/Button';
 import MovieSection from '@/app/components/sections/MovieSection';
 import { Movie } from '@/app/assets/dummyData';
@@ -12,10 +12,10 @@ const MyMovies = async () => {
 	const { getUser } = await getKindeServerSession();
 	const user = await getUser()
 
-	const categories = await getCategories(user?.id!);
+	const categories = await getMovies(user?.id!);
 
 	const movies = categories?.slice(0, 8).map(async (category) => {
-		const moviePromises = category.movies?.map(async (movie) => {
+		const moviePromises = category.movies?.slice(0, 8).map(async (movie) => {
 			const res = await fetch(`${process.env.BASE_PATH}/api/movies?imdb_id=${movie}`, {
 				headers: {
 					Cookie: (await cookies()).toString()

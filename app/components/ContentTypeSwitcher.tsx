@@ -1,5 +1,3 @@
-import '@/app/components/css/contentTypeSwitch.css'
-
 type ContentType = 'movies' | 'books';
 
 interface Props {

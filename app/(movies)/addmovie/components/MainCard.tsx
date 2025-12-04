@@ -5,7 +5,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import type { Movie as DetailedMovie } from '@/app/assets/dummyData';
 import type { Movie } from '../../movie';
 import MovieCard from './SearchMovieCard';
-import { redirect } from 'next/navigation';
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
 import Link from 'next/link';
 import LoadingSpinner from '@/app/components/sections/LoadingSpinner';
@@ -16,16 +15,18 @@ import { dummyMoviesData } from '@/app/assets/dummyData';
 type ContentType = "movies" | "books"
 
 interface Props {
-	contentType: ContentType
+	contentType: ContentType;
+	to: string | undefined;
+	category: string | undefined;
 }
 
-const Card = React.memo(({ contentType }: Props) => {
+const Card = React.memo(({ contentType, to, category }: Props) => {
 	const [title, setTitle] = useState("Frieren")
 	const [movies, setMovies] = useState<Movie[]>()
 	const [error, setError] = useState()
 	const [indexToShow, setIndexToShow] = useState([0, 5])
 	const [isLoading, setIsLoading] = useState<boolean>(false)
-	const [selectedMovie, setSelectedMovie] = useState<DetailedMovie>(dummyMoviesData[1])
+	const [selectedMovie, setSelectedMovie] = useState<DetailedMovie | undefined>(dummyMoviesData[3])
 	const [loadingSelected, setLoadingSelected] = useState<boolean>()
 
 	const handleClick = useCallback(async (title: string) => {
@@ -48,11 +49,8 @@ const Card = React.memo(({ contentType }: Props) => {
 				setLoadingSelected(false)
 				console.log(selectedMovie)
 			})
+			.catch(error => setError(error))
 	}, [])
-
-	useEffect(() => {
-		console.log(selectedMovie)
-	}, [selectedMovie])
 
 	return (
 		<>
@@ -63,10 +61,11 @@ const Card = React.memo(({ contentType }: Props) => {
 			}
 
 			{
-				selectedMovie &&
+				(selectedMovie && !error) &&
 				(
 					<div className='z-50 bg-black/30 backdrop-blur-xs w-full h-full absolute flex items-center justify-center'>
-						<MovieDetailsCard movie={selectedMovie} />
+						<div className='w-full h-full absolute bg-transparent' onClick={() => setSelectedMovie(undefined)}></div>
+						<MovieDetailsCard searchCategory={category} movie={selectedMovie} close={() => setSelectedMovie(undefined)} to={to} />
 					</div>
 				)
 			}
