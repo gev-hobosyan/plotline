@@ -23,7 +23,7 @@ const MovieSection = ({ title, movies }: Props) => {
 				</div>
 
 				<div className="flex flex-wrap justify-center md:justify-start gap-8">
-					{movies.map(movie => (
+					{movies.slice(0, 6).map(movie => (
 						<Link href={`/movie/${movie.imdbId}`} key={movie.imdbId}>
 							<MovieCard movie={movie} />
 						</Link>

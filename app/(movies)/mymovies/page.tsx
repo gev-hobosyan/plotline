@@ -62,7 +62,7 @@ const MyMovies = async () => {
 						<MovieSection title={(await movie).categoryName} movies={(await movie).movies} />
 					))
 				}
-
+ 
 			</div>
 		</>
 	);
